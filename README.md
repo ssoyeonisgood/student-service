@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS students (
 );
 
 
-3. **Install dependencies**
-
+3. ****Install dependencies**
+**
 go mod tidy
 
 
