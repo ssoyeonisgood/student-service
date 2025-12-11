@@ -42,44 +42,43 @@ This project allows creating, reading, updating, and deleting student data via g
 
 ## Setup
 
-1. Clone the repository
+1. **Clone the repository**
 
-```bash
-git clone https://github.com/yourusername/student-service.git
-cd student-service
+        git clone https://github.com/yourusername/student-service.git
+        cd student-service
 
 2. **Set up PostgreSQL database**
 
-CREATE DATABASE studentdb;
-CREATE TABLE IF NOT EXISTS students (
-  id UUID PRIMARY KEY,
-  name TEXT NOT NULL,
-  age INT NOT NULL,
-  class_id TEXT,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
-);
+        CREATE DATABASE studentdb;
+        CREATE TABLE IF NOT EXISTS students (
+          id UUID PRIMARY KEY,
+          name TEXT NOT NULL,
+          age INT NOT NULL,
+          class_id TEXT,
+          created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+        );
 
 
 3. **Install dependencies**
 
-go mod tidy
+        go mod tidy
 
 
 4. **Generate gRPC code from .proto files**
 
-protoc --go_out=pb --go-grpc_out=pb proto/student.proto
+        protoc --go_out=pb --go-grpc_out=pb proto/student.proto
 
 
 5. **Running the Project**
 
 - Start gRPC server
 
-go run cmd/server/main.go
+        go run cmd/server/main.go
 
 
 - Run CLI client
 
-go run client.go
+        go run client.go
 
 
 6. **Use the menu to create, update, delete, or list students.**
