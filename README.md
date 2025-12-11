@@ -42,7 +42,7 @@ This project allows creating, reading, updating, and deleting student data via g
 
 ## Setup
 
-1. **Clone the repository**
+1. Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/student-service.git
@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS students (
 );
 
 
-3. ****Install dependencies**
-**
+3. **Install dependencies**
+
 go mod tidy
 
 
