@@ -1,27 +1,14 @@
 syntax = "proto3";
 
 package student;
-option go_package = "student-service/proto;studentpb";
+option go_package = "student-service/pb;studentpb";
 
 service StudentService {
   rpc GetStudent(GetStudentRequest) returns (GetStudentResponse);
   rpc CreateStudent(CreateStudentRequest) returns (CreateStudentResponse);
-}
-
-message GetStudentRequest {
-  int32 id = 1;
-}
-
-message GetStudentResponse {
-  Student student = 1;
-}
-
-message CreateStudentRequest {
-  string name = 1;
-}
-
-message CreateStudentResponse {
-  Student student = 1;
+  rpc UpdateStudent(UpdateStudentRequest) returns (UpdateStudentResponse);
+  rpc DeleteStudent(DeleteStudentRequest) returns (DeleteStudentResponse);
+  rpc ListStudents(ListStudentsRequest) returns (ListStudentsResponse);
 }
 
 message Student {
@@ -29,3 +16,17 @@ message Student {
   string name = 2;
 }
 
+message GetStudentRequest { int32 id = 1; }
+message GetStudentResponse { Student student = 1; }
+
+message CreateStudentRequest { string name = 1; }
+message CreateStudentResponse { Student student = 1; }
+
+message UpdateStudentRequest { int32 id = 1; string name = 2; }
+message UpdateStudentResponse { Student student = 1; }
+
+message DeleteStudentRequest { int32 id = 1; }
+message DeleteStudentResponse { bool success = 1; }
+
+message ListStudentsRequest {}
+message ListStudentsResponse { repeated Student students = 1; }
